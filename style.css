@@ -36,7 +36,7 @@ p {
   z-index: 1;
 }
 .grid {
-  width: 100%;
+  width: fit-content;
   margin: 3rem;
   display: grid;
   justify-content: center;
@@ -51,6 +51,10 @@ p {
   padding: 3rem;
   box-shadow: 1rem 2rem 5rem rgba(0, 0, 0, 0.192);
   position: relative;
+  transition: 0.5s;
+}
+.grid-item:hover {
+  transform: scale(1.05);
 }
 .grid-header {
   display: flex;
@@ -70,6 +74,9 @@ p {
 .name-and-title p {
   opacity: 50%;
   font-weight: 500;
+}
+.grid:hover .grid-item:not(:hover) {
+  filter: blur(2px) grayscale(30%);
 }
 /* 
 ==========================
@@ -100,6 +107,7 @@ specific grid items style
 .grid-item:nth-of-type(4) img {
   outline: 0.3em solid var(--Moderate-violet);
 }
+
 @media (min-width: 50em) {
   .grid {
     grid-template-columns: repeat(2, 23rem);
@@ -121,7 +129,11 @@ specific grid items style
     font-size: 1.18rem;
     font-weight: 300;
   }
+  .grid-item:nth-of-type(5) {
+    grid-column: span 2;
+  }
 }
+
 @media (min-width: 76em) {
   .grid {
     grid-template-columns: repeat(4, 21rem);
@@ -133,6 +145,7 @@ specific grid items style
     max-width: none;
   }
   .grid-item:nth-of-type(1) {
+    background-position: top 0 right 7em;
     grid-column: span 2;
   }
   .grid-item:nth-of-type(4) {
