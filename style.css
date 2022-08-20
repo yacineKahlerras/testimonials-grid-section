@@ -10,30 +10,46 @@
   --White: hsl(0, 0%, 100%);
   --Light-gray: hsl(0, 0%, 81%);
   --Light-grayish-blue: hsl(210, 46%, 95%);
-  font-size: 13px;
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: var(--Very-dark-grayish-blue);
   font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: 500;
   --image-size: 3rem;
 }
 body {
-  min-height: 100vh;
   display: grid;
   place-items: center;
   background: var(--Light-grayish-blue);
 }
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+h2 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+p {
+  opacity: 70%;
+  z-index: 1;
+}
 .grid {
   width: 100%;
-  max-width: 28.3rem;
   margin: 3rem;
   display: grid;
+  place-items: center;
   gap: 2rem;
 }
 .grid-item {
   padding: 1rem;
+  width: 100%;
+  max-width: 25.3rem;
   background: var(--White);
   border-radius: 0.8rem;
   padding: 3rem;
-  box-shadow: 1rem 2rem 5rem rgba(0, 0, 0, 0.082);
+  box-shadow: 1rem 2rem 5rem rgba(0, 0, 0, 0.192);
+  position: relative;
 }
 .grid-header {
   display: flex;
@@ -44,4 +60,36 @@ body {
   height: var(--image-size);
   border-radius: 50%;
   margin-right: 1rem;
+}
+.name-and-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.name-and-title p {
+  opacity: 50%;
+  font-weight: 500;
+}
+/* 
+==========================
+==========================
+specific grid items style 
+==========================
+==========================
+*/
+.grid-item:nth-of-type(1) {
+  background: var(--Moderate-violet);
+  background-image: url("./images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: top 0rem right 1.8rem;
+  background-size: 8rem;
+  color: var(--White);
+}
+.grid-item:nth-of-type(2) {
+  background: var(--Very-dark-grayish-blue);
+  color: var(--White);
+}
+.grid-item:nth-of-type(4) {
+  background: var(--Very-dark-blackish-blue);
+  color: var(--White);
 }
