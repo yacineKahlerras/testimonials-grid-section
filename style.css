@@ -10,13 +10,14 @@
   --White: hsl(0, 0%, 100%);
   --Light-gray: hsl(0, 0%, 81%);
   --Light-grayish-blue: hsl(210, 46%, 95%);
-  font-size: clamp(13px, 1.3vw, 15px);
+  font-size: clamp(13px, 1.3vw, 13px);
   color: var(--Very-dark-grayish-blue);
   font-family: "Barlow Semi Condensed", sans-serif;
   font-weight: 500;
   --image-size: 3rem;
 }
 body {
+  min-height: 100vh;
   display: grid;
   place-items: center;
   background: var(--Light-grayish-blue);
@@ -38,7 +39,7 @@ p {
   width: 100%;
   margin: 3rem;
   display: grid;
-  place-items: center;
+  justify-content: center;
   gap: 2rem;
 }
 .grid-item {
@@ -92,4 +93,53 @@ specific grid items style
 .grid-item:nth-of-type(4) {
   background: var(--Very-dark-blackish-blue);
   color: var(--White);
+}
+.grid-item:nth-of-type(1) img {
+  outline: 0.3em solid rgba(255, 255, 255, 0.315);
+}
+.grid-item:nth-of-type(4) img {
+  outline: 0.3em solid var(--Moderate-violet);
+}
+@media (min-width: 50em) {
+  .grid {
+    grid-template-columns: repeat(2, 23rem);
+  }
+  .grid-item {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1.16rem;
+  }
+  .grid-item > p {
+    font-size: 1.18rem;
+    font-weight: 300;
+  }
+}
+@media (min-width: 76em) {
+  .grid {
+    grid-template-columns: repeat(4, 21rem);
+    grid-template-rows: repeat(2, 24rem);
+  }
+  .grid-item {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+  }
+  .grid-item:nth-of-type(1) {
+    grid-column: span 2;
+  }
+  .grid-item:nth-of-type(4) {
+    grid-column: 2 / span 2;
+  }
+  .grid-item:nth-of-type(5) {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
 }
